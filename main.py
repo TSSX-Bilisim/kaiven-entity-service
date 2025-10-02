@@ -1,13 +1,10 @@
 from fastapi import FastAPI
+from api.routes import router
 
-app = FastAPI()
+app = FastAPI(
+    title="Presidio NLP Server",
+    description="GLiNER + PatternRecognizer destekli KVKK/GDPR uyumlu sunucu",
+    version="1.0.0",
+)
 
-
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
-
-@app.get("/hello/{name}")
-async def say_hello(name: str):
-    return {"message": f"Hello {name}"}
+app.include_router(router)

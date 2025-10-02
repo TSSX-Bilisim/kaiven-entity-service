@@ -17,6 +17,6 @@ def load_gliner_recognizer():
         map_location='cpu'
     )
 
-    recognizer.supported_language= None
+    recognizer.supported_language='en'
 
     return recognizer

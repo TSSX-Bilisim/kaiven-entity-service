@@ -10,7 +10,7 @@ analyzer = analyzerEngineFactory.create()
 
 @router.post("/analyze", response_model=List[NerEntity])
 async def analyze_text(request: AnalyzeRequest):
-    results = analyzer.analyze(text=request.text, language=request.language)
+    results = analyzer.analyze(text=request.text, language='en')
 
     return [
         NerEntity(

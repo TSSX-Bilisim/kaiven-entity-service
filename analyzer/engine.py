@@ -3,7 +3,7 @@ from .registry import build_registry
 
 class AnalyzerEngineFactory:
     def __init__(self, supported_languages=None):
-        self.supported_languages = supported_languages or ["tr", "en"]
+        self.supported_languages = ['en']
         self.registry = build_registry(self.supported_languages)
 
     def create(self) -> AnalyzerEngine:

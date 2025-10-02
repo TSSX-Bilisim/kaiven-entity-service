@@ -4,9 +4,9 @@ version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.13"
 dependencies = [
-    "fastapi>=0.118.0",
+    "fastapi[standard]>=0.118.0",
     "gliner==0.2.22",
     "hf-xet>=1.1.10",
     "presidio-analyzer[gliner]>=2.2.360",
-    "uvicorn>=0.37.0",
+    "uvicorn[standard]>=0.37.0",
 ]

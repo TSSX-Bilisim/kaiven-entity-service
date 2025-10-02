@@ -23,4 +23,3 @@ async def analyze_text(request: AnalyzeRequest):
         for result in results
     ]
 
-

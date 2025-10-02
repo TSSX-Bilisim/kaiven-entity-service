@@ -14,8 +14,9 @@ class PostProcessor:
         final = []
         for res in filtered:
             if not any(
-                res.start < r.end and res.end > r.start and res.entity_type == r.entity_type
+                res.start < r.end and res.end > r.start
                 for r in final
             ):
                 final.append(res)
+
         return final

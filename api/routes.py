@@ -1,5 +1,4 @@
-from fastapi import APIRouter, Depends, Request
-from presidio_analyzer import AnalyzerEngine
+from fastapi import APIRouter
 from api.schema import NerEntity, AnalyzeRequest
 from typing import List
 from analyzer.engine import AnalyzerEngineFactory

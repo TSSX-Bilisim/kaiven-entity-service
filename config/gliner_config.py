@@ -26,7 +26,7 @@ class GlinerConfig:
             "IP_ADDRESS",
             "CREDIT_CARD_EXPIRATION_DATE",
             "CVV",
-            "POSTAL_CODE",
+            "ZIP_CODE",
             "CVC",
             "TRANSACTION_NUMBER",
             "LICENSE_PLATE_NUMBER"
@@ -56,7 +56,7 @@ class GlinerConfig:
             "ip address": "IP_ADDRESS",
             "credit card expiration date": "CREDIT_CARD_EXPIRATION_DATE",
             "cvv": "CVV",
-            "postal code": "POSTAL_CODE",
+            "zip code": "ZIP_CODE",
             "cvc": "CVC",
             "transaction number": "TRANSACTION_NUMBER",
             "license plate number": "LICENSE_PLATE_NUMBER"

@@ -10,4 +10,5 @@ class AnalyzerEngineFactory:
         return AnalyzerEngine(
             registry=self.registry,
             supported_languages=self.supported_languages,
+            default_score_threshold=0.55
         )

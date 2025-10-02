@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from api.schema import NerEntity, AnalyzeRequest
-from typing import List
+from typing import Dict, List
 from analyzer.engine import AnalyzerEngineFactory
 from analyzer.post_processor import PostProcessor
 
@@ -10,19 +10,20 @@ analyzerEngineFactory = AnalyzerEngineFactory()
 analyzer = analyzerEngineFactory.create()
 post_processor = PostProcessor(score_threshold=0.70)
 
-@router.post("/analyze", response_model=List[NerEntity])
+@router.post("/analyze", response_model=Dict[str, List[NerEntity]])
 async def analyze_text(request: AnalyzeRequest):
     raw_results = analyzer.analyze(text=request.text, language='en')
     results = post_processor.resolve_overlaps(raw_results)
 
-    return [
-        NerEntity(
-            text=request.text[result.start:result.end],
-            label=result.entity_type,
-            start=result.start,
-            end=result.end,
-            score=result.score,
-        )
-        for result in results
-    ]
+    return {
+        "entities": [
+            NerEntity(
+                text=request.text[result.start:result.end],
+                label=result.entity_type,
+                start=result.start,
+                end=result.end,
+                score=result.score,
+            )
+            for result in results
+        ]}
 

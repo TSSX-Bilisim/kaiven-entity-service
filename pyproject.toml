@@ -1,0 +1,11 @@
+[project]
+name = "presidio-test"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi>=0.118.0",
+    "gliner==0.2.22",
+    "presidio-analyzer[gliner]>=2.2.360",
+    "uvicorn>=0.37.0",
+]

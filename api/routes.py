@@ -2,15 +2,18 @@ from fastapi import APIRouter
 from api.schema import NerEntity, AnalyzeRequest
 from typing import List
 from analyzer.engine import AnalyzerEngineFactory
+from analyzer.post_processor import PostProcessor
 
 router = APIRouter()
 
 analyzerEngineFactory = AnalyzerEngineFactory()
 analyzer = analyzerEngineFactory.create()
+post_processor = PostProcessor(score_threshold=0.70)
 
 @router.post("/analyze", response_model=List[NerEntity])
 async def analyze_text(request: AnalyzeRequest):
-    results = analyzer.analyze(text=request.text, language='en')
+    raw_results = analyzer.analyze(text=request.text, language='en')
+    results = post_processor.resolve_overlaps(raw_results)
 
     return [
         NerEntity(

@@ -31,6 +31,7 @@ class GlinerConfig:
             "TRANSACTION_NUMBER",
             "LICENSE_PLATE_NUMBER"
             "SERIAL_NUMBER",
+            "NATIONAL_ID_NUMBER",
         ]
 
         # Presidio → GLiNER format mapping
@@ -61,7 +62,8 @@ class GlinerConfig:
             "cvc": "CVC",
             "transaction number": "TRANSACTION_NUMBER",
             "license plate number": "LICENSE_PLATE_NUMBER",
-            "serial number": "SERIAL_NUMBER"
+            "serial number": "SERIAL_NUMBER",
+            "national id number": "NATIONAL_ID_NUMBER",
         }
 
         # Belirli terimleri içeren yanlış pozitifleri engellemek için deny list

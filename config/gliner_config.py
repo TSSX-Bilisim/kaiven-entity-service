@@ -4,7 +4,7 @@ class GlinerConfig:
 
         # Presidio formatında entity türleri
         self.entity_types = [
-            "PERSON_NAME",
+            "PERSON",
             "GENDER",
             "MARITAL_STATUS",
             "EMAIL_ADDRESS",
@@ -30,11 +30,12 @@ class GlinerConfig:
             "CVC",
             "TRANSACTION_NUMBER",
             "LICENSE_PLATE_NUMBER"
+            "SERIAL_NUMBER",
         ]
 
         # Presidio → GLiNER format mapping
         self.entity_mapping = {
-            "person name": "PERSON_NAME",
+            "person": "PERSON",
             "gender": "GENDER",
             "marital status": "MARITAL_STATUS",
             "email address": "EMAIL_ADDRESS",
@@ -59,7 +60,8 @@ class GlinerConfig:
             "zip code": "ZIP_CODE",
             "cvc": "CVC",
             "transaction number": "TRANSACTION_NUMBER",
-            "license plate number": "LICENSE_PLATE_NUMBER"
+            "license plate number": "LICENSE_PLATE_NUMBER",
+            "serial number": "SERIAL_NUMBER"
         }
 
         # Belirli terimleri içeren yanlış pozitifleri engellemek için deny list

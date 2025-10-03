@@ -13,7 +13,10 @@ post_processor = PostProcessor(score_threshold=0.55)
 @router.post("/extract", response_model=Dict[str, List[NerEntity]])
 async def analyze_text(request: AnalyzeRequest):
     raw_results = analyzer.analyze(text=request.text, language='en')
-    print(raw_results)
+
+    for entity in raw_results:
+        print(f"{entity}")
+
     results = post_processor.resolve_overlaps(raw_results)
 
     return {

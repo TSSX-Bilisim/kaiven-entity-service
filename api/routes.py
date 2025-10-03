@@ -10,7 +10,7 @@ analyzerEngineFactory = AnalyzerEngineFactory()
 analyzer = analyzerEngineFactory.create()
 post_processor = PostProcessor(score_threshold=0.70)
 
-@router.post("/analyze", response_model=Dict[str, List[NerEntity]])
+@router.post("/extract", response_model=Dict[str, List[NerEntity]])
 async def analyze_text(request: AnalyzeRequest):
     raw_results = analyzer.analyze(text=request.text, language='en')
     results = post_processor.resolve_overlaps(raw_results)

@@ -322,6 +322,14 @@ class GlinerConfig:
             "slack dm id": "SLACK_DM_ID",
             "pagerduty token": "PAGERDUTY_TOKEN"
         }
+        self.entity_types.sort(key=lambda x: len(x), reverse=True)
+        self.entity_mapping = dict(
+            sorted(
+                self.entity_mapping.items(),
+                key=lambda item: len(item[0]),  # key’in uzunluğuna göre
+                reverse=True  # uzunlar önce
+            )
+        )
 
         # Belirli terimleri içeren yanlış pozitifleri engellemek için deny list
         self.deny_list = {

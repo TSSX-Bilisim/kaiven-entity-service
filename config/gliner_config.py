@@ -170,7 +170,6 @@ class GlinerConfig:
             "gender": "GENDER",
             "marital status": "MARITAL_STATUS",
             "date of birth": "DATE_OF_BIRTH",
-            "tckn": "TCKN",
             "national id number": "NATIONAL_ID_NUMBER",
             "blood type": "BLOOD_TYPE",
             "mother maiden name": "MOTHER_MAIDEN_NAME",

@@ -3,7 +3,6 @@ from typing import Optional
 
 class AnalyzeRequest(BaseModel):
     text: str
-    language: Optional[str] = "tr"
 
 class NerEntity(BaseModel):
     text: str

@@ -164,7 +164,165 @@ class GlinerConfig:
         ]
 
         # Presidio → GLiNER format mapping
-        self.entity_mapping = {et.lower().replace("_", " "): et for et in self.entity_types}
+        self.entity_mapping = {
+            # Personal Identity
+            "person": "PERSON",
+            "gender": "GENDER",
+            "marital status": "MARITAL_STATUS",
+            "date of birth": "DATE_OF_BIRTH",
+            "tckn": "TCKN",
+            "national id number": "NATIONAL_ID_NUMBER",
+            "blood type": "BLOOD_TYPE",
+            "mother maiden name": "MOTHER_MAIDEN_NAME",
+
+            # Contact Information
+            "phone number": "PHONE_NUMBER",
+            "email address": "EMAIL_ADDRESS",
+            "address": "ADDRESS",
+            "zip code": "ZIP_CODE",
+            "ip address": "IP_ADDRESS",
+
+            # Financial
+            "bank account number": "BANK_ACCOUNT_NUMBER",
+            "iban": "IBAN",
+            "credit card number": "CREDIT_CARD_NUMBER",
+            "credit card expiration date": "CREDIT_CARD_EXPIRATION_DATE",
+            "cvc/cvv": "CVC_CVV",
+            "salary": "SALARY",
+            "transaction number": "TRANSACTION_NUMBER",
+
+            # Medical (Special)
+            "medical condition": "MEDICAL_CONDITION",
+
+            # Professional
+            "occupation": "OCCUPATION",
+            "organization": "ORGANIZATION",
+            "political view": "POLITICAL_VIEW",
+            "religion": "RELIGION",
+
+            # Technical Identifiers
+            "license plate number": "LICENSE_PLATE_NUMBER",
+            "serial number": "SERIAL_NUMBER",
+
+            # Legal & Admin
+            "passport number": "PASSPORT_NUMBER",
+            "driver license number": "DRIVER_LICENSE_NUMBER",
+            "sgk number": "SGK_NUMBER",
+            "tax number vkn": "TAX_NUMBER_VKN",
+            "criminal record": "CRIMINAL_RECORD",
+            "court case id": "COURT_CASE_ID",
+            "signature image": "SIGNATURE_IMAGE",
+
+            # Sensitive (Special)
+            "biometric data": "BIOMETRIC_DATA",
+            "genetic data": "GENETIC_DATA",
+            "race ethnicity": "RACE_ETHNICITY",
+            "trade union membership": "TRADE_UNION_MEMBERSHIP",
+            "sexual orientation": "SEXUAL_ORIENTATION",
+            "criminal convictions": "CRIMINAL_CONVICTIONS",
+
+            # Org & Employment
+            "employee id": "EMPLOYEE_ID",
+            "customer id": "CUSTOMER_ID",
+            "project name": "PROJECT_NAME",
+            "department": "DEPARTMENT",
+            "work email": "WORK_EMAIL",
+            "work phone": "WORK_PHONE",
+            "work location": "WORK_LOCATION",
+            "salary grade": "SALARY_GRADE",
+            "performance score": "PERFORMANCE_SCORE",
+            "hire date": "HIRE_DATE",
+            "termination date": "TERMINATION_DATE",
+
+            # Digital & Technical
+            "device id": "DEVICE_ID",
+            "imei": "IMEI",
+            "mac address": "MAC_ADDRESS",
+            "user agent": "USER_AGENT",
+            "cookies": "COOKIES",
+            "session id": "SESSION_ID",
+            "token": "TOKEN",
+            "api key": "API_KEY",
+            "api secret": "API_SECRET",
+            "file path": "FILE_PATH",
+            "file name": "FILE_NAME",
+            "geolocation": "GEOLOCATION",
+
+            # Education
+            "student id": "STUDENT_ID",
+            "school name": "SCHOOL_NAME",
+            "degree major": "DEGREE_MAJOR",
+            "graduation year": "GRADUATION_YEAR",
+            "gpa": "GPA",
+            "certificate id": "CERTIFICATE_ID",
+
+            # Behavioral & Usage
+            "chat message": "CHAT_MESSAGE",
+            "voice recording": "VOICE_RECORDING",
+            "search query": "SEARCH_QUERY",
+            "browsing history": "BROWSING_HISTORY",
+            "purchase history": "PURCHASE_HISTORY",
+            "log entry": "LOG_ENTRY",
+            "sentiment text": "SENTIMENT_TEXT",
+
+            # Visual & Document
+            "photo": "PHOTO",
+            "video frame": "VIDEO_FRAME",
+            "handwritten text": "HANDWRITTEN_TEXT",
+            "document scan": "DOCUMENT_SCAN",
+            "stamp seal image": "STAMP_SEAL_IMAGE",
+
+            # IT/Software - Secrets
+            "api key generic": "API_KEY_GENERIC",
+            "aws access key id": "AWS_ACCESS_KEY_ID",
+            "aws secret access key": "AWS_SECRET_ACCESS_KEY",
+            "gcp sa private key": "GCP_SA_PRIVATE_KEY",
+            "azure connection string": "AZURE_CONNECTION_STRING",
+            "stripe secret": "STRIPE_SECRET",
+            "github pat": "GITHUB_PAT",
+            "slack webhook": "SLACK_WEBHOOK",
+            "jwt token": "JWT_TOKEN",
+            "oauth client secret": "OAUTH_CLIENT_SECRET",
+            "encryption key": "ENCRYPTION_KEY",
+            "ssh private key": "SSH_PRIVATE_KEY",
+            "cert private key": "CERT_PRIVATE_KEY",
+
+            # IT/Software - Config & DB
+            "db connection string": "DB_CONNECTION_STRING",
+            "jdbc url": "JDBC_URL",
+            "redis uri": "REDIS_URI",
+            "kafka sasl": "KAFKA_SASL",
+            "smtp credentials": "SMTP_CREDENTIALS",
+
+            # IT/Software - Cloud & DevOps
+            "kubeconfig": "KUBECONFIG",
+            "k8s secret yaml": "K8S_SECRET_YAML",
+            "helm values secret": "HELM_VALUES_SECRET",
+            "terraform state": "TERRAFORM_STATE",
+            "cloudwatch link": "CLOUDWATCH_LINK",
+            "s3 bucket url": "S3_BUCKET_URL",
+            "iam arn": "IAM_ARN",
+
+            # IT/Software - Code & Repos
+            "repo url private": "REPO_URL_PRIVATE",
+            "commit hash": "COMMIT_HASH",
+            "internal project code": "INTERNAL_PROJECT_CODE",
+            "stack trace with pii": "STACK_TRACE_WITH_PII",
+            "package registry token": "PACKAGE_REGISTRY_TOKEN",
+            "dockercfg credentials": "DOCKERCFG_CREDENTIALS",
+
+            # IT/Software - Logs & Ops
+            "access log pii": "ACCESS_LOG_PII",
+            "auth log": "AUTH_LOG",
+            "error log secrets": "ERROR_LOG_SECRETS",
+            "internal url": "INTERNAL_URL",
+            "monitoring links": "MONITORING_LINKS",
+
+            # Workflow Links
+            "jira ticket url": "JIRA_TICKET_URL",
+            "slack dm id": "SLACK_DM_ID",
+            "pagerduty token": "PAGERDUTY_TOKEN"
+        }
 
         # Belirli terimleri içeren yanlış pozitifleri engellemek için deny list
         self.deny_list = {

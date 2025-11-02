@@ -3,6 +3,7 @@ from typing import Optional
 
 class AnalyzeRequest(BaseModel):
     text: str
+    labelsToFind: Optional[list[str]] = None
 
 class NerEntity(BaseModel):
     text: str

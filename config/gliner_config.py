@@ -1,6 +1,6 @@
 class GlinerConfig:
     def __init__(self):
-        self.model_path = "gliner/gliner_multi_pii-v1"
+        self.model_path = "nvidia/gliner-PII"
 
         # Presidio formatında entity türleri 
         self.entity_types = [

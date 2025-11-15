@@ -1,11 +1,15 @@
 from presidio_analyzer import RecognizerResult
 
 class PostProcessor:
-    def __init__(self, score_threshold: float = 0.0):
+    def __init__(self, score_threshold: float = 0.2):
         self.score_threshold = score_threshold
 
     def resolve_overlaps(self, results: list[RecognizerResult]) -> list[RecognizerResult]:
         # Skor eşik altındakileri filtrele
+        print(
+            f"PostProcessor: Filtering results with score threshold {self.score_threshold}"
+        )
+        print(f"Initial results: {results}")
         filtered = [r for r in results if r.score >= self.score_threshold]
 
         # Skora göre sırala

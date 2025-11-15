@@ -16,8 +16,8 @@ RUN pip install --no-cache-dir uv
 # Proje dosyalarını kopyala
 COPY pyproject.toml uv.lock ./
 
-# Bağımlılıkları kur
-RUN uv pip install --system -r pyproject.toml
+# Bağımlılıkları kur (bu layer cache'lenecek)
+RUN uv pip install --system --no-cache -r pyproject.toml
 
 # Uygulama kodunu kopyala
 COPY . .

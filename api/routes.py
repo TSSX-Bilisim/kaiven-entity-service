@@ -8,7 +8,7 @@ router = APIRouter()
 
 analyzerEngineFactory = AnalyzerEngineFactory()
 analyzer = analyzerEngineFactory.create()
-post_processor = PostProcessor(score_threshold=0.55)
+post_processor = PostProcessor(score_threshold=0.3)
 
 @router.post("/extract", response_model=Dict[str, List[NerEntity]])
 async def analyze_text(request: AnalyzeRequest):
@@ -16,8 +16,8 @@ async def analyze_text(request: AnalyzeRequest):
 
     for entity in raw_results:
         print(f"{entity}")
-
     results = post_processor.resolve_overlaps(raw_results)
+    print(f"Results after resolving overlaps: {results}")
 
     return {
         "entities": [

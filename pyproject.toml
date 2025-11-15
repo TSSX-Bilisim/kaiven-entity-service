@@ -7,6 +7,7 @@ dependencies = [
     "fastapi[standard]>=0.118.0",
     "gliner==0.2.22",
     "hf-xet>=1.1.10",
+    "pip>=25.3",
     "presidio-analyzer[gliner]>=2.2.360",
     "uvicorn[standard]>=0.37.0",
 ]
